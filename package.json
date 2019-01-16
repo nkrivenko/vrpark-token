@@ -1,0 +1,35 @@
+{
+  "name": "vrpark",
+  "version": "1.0.0",
+  "description": "VR Park ERC223 token",
+  "main": "truffle-config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ERC223"
+  ],
+  "author": "Nikolai Krivenko",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-preset-stage-3": "^6.17.0",
+    "babel-register": "^6.23.0",
+    "bignumber.js": "^8.0.1",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "chai-bignumber": "^3.0.0",
+    "chai-bn": "^0.1.0",
+    "ethlint": "^1.2.2",
+    "openzeppelin-solidity": "^2.1.1",
+    "solidity-coverage": "^0.5.11"
+  },
+  "dependencies": {
+    "truffle": "^5.0.1"
+  }
+}
