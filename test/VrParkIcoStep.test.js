@@ -36,17 +36,17 @@ contract("VrParkIcoStep", async function([ owner, wallet, investor ]) {
         this.ico.should.exist;
         this.token.should.exist;
 
-	//this.openingTime.should.be.bignumber.equal(await this.ico.openingTime());
-	//this.closingTime.should.be.bignumber.equal(await this.ico.closingTime());
+	this.openingTime.should.be.bignumber.equal(await this.ico.openingTime());
+	this.closingTime.should.be.bignumber.equal(await this.ico.closingTime());
         wallet.should.be.equal(await this.ico.wallet());
     });
 
     it("should mint tokens for investor on crowdsale", async function() {
-        // await time.increaseTo(this.openingTime);
+        await time.increaseTo(this.openingTime);
 	await this.ico.sendTransaction({ value: SINGLE_ETHER, from: investor }).should.be.fulfilled;
     });
 
-    /*it("should revert if crowdsale is not started or over", async function() {
+    it("should revert if crowdsale is not started or over", async function() {
         await shouldFail.reverting(this.ico.send(SINGLE_ETHER, { from: investor }));
         await time.increaseTo(this.openingTime);
 
@@ -54,6 +54,6 @@ contract("VrParkIcoStep", async function([ owner, wallet, investor ]) {
 
         await time.increaseTo(this.afterClosingTime);
         await shouldFail.reverting(this.ico.send(SINGLE_ETHER, { from: investor }));
-    });*/
+    });
 });
 

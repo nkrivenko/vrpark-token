@@ -6,11 +6,11 @@ import "openzeppelin-solidity/contracts/crowdsale/validation/TimedCrowdsale.sol"
 import "openzeppelin-solidity/contracts/crowdsale/emission/MintedCrowdsale.sol";
 import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 
-contract VrParkIcoStep is /*TimedCrowdsale,*/ MintedCrowdsale {
+
+contract VrParkIcoStep is TimedCrowdsale, MintedCrowdsale {
 
     constructor (uint256 openTime, uint256 closeTime, uint256 rate, address payable wallet, VrParkToken token) public
-        // TimedCrowdsale(openTime, closeTime)
-	MintedCrowdsale()
+        TimedCrowdsale(openTime, closeTime)
         Crowdsale(rate, wallet, token) {
  
     }
