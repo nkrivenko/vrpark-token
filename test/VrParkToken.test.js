@@ -1,6 +1,4 @@
-import advanceBlock from "./helpers/advanceToBlock";
-import EVMRevert from "./helpers/EVMRevert";
-import ether from "./helpers/ether";
+const { ether, shouldFail, time } = require("openzeppelin-test-helpers");
 
 const VrParkToken = artifacts.require("VrParkToken");
 const BN = web3.utils.BN;
@@ -20,7 +18,7 @@ contract("VrParkToken", async function([ owner, token, investor ]) {
     const SINGLE_TOKEN = new BN("1e18");
 
     before(async function() {
-        await advanceBlock();
+        await time.advanceBlock();
     });
 
     beforeEach(async function() {
@@ -41,11 +39,11 @@ contract("VrParkToken", async function([ owner, token, investor ]) {
     });
 
     it("should not mint more tokens than cap", async function() {
-        this.token.mint(investor, TOTAL_TOKENS.add(new BN(1))).should.be.rejectedWith(EVMRevert);
+        shouldFail.reverting(this.token.mint(investor, TOTAL_TOKENS.add(new BN(1))));
     });
     
     it("should allow to mint tokens only to Minters", async function() {
-        this.token.mint(investor, SINGLE_TOKEN, { from: investor }).should.be.rejectedWith(EVMRevert);
+        shouldFail.reverting(this.token.mint(investor, SINGLE_TOKEN, { from: investor }));
     });
 
     it("should allow to add minters", async function() {
@@ -55,7 +53,7 @@ contract("VrParkToken", async function([ owner, token, investor ]) {
     });
 
     it("should allow to add minters only to the other minters", async function() {
-        this.token.addMinter(investor, { from: investor }).should.be.rejectedWith(EVMRevert);
+        shouldFail.reverting(this.token.addMinter(investor, { from: investor }));
     });
 
     it("should allow to remove minters", async function() {
@@ -66,7 +64,7 @@ contract("VrParkToken", async function([ owner, token, investor ]) {
     });
 
     it("should allow to remove minters only to the other minters", async function() {
-        this.token.removeMinter(investor, { from: investor }).should.be.rejectedWith(EVMRevert);
+        shouldFail.reverting(this.token.removeMinter(investor, { from: investor }));
     });
 });
 

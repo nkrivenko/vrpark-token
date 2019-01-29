@@ -1,13 +1,14 @@
 {
   "name": "vrpark",
   "version": "1.0.0",
-  "description": "VR Park ERC223 token",
+  "description": "VR Park ERC20 token",
   "main": "truffle-config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "truffle test",
+    "coverage": "./node_modules/.bin/solidity-coverage"
   },
   "keywords": [
-    "ERC223"
+    "ERC20"
   ],
   "author": "Nikolai Krivenko",
   "license": "MIT",
@@ -25,8 +26,10 @@
     "chai-as-promised": "^7.1.1",
     "chai-bignumber": "^3.0.0",
     "chai-bn": "^0.1.0",
+    "coveralls": "^3.0.2",
     "ethlint": "^1.2.2",
     "openzeppelin-solidity": "^2.1.1",
+    "openzeppelin-test-helpers": "^0.1.2",
     "solidity-coverage": "^0.5.11"
   },
   "dependencies": {
