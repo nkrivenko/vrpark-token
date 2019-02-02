@@ -61,6 +61,10 @@ contract ExchangeInteractor is usingOraclize, IExchangeInteractor, Ownable {
         }
     }
 
+    function getCurrentPrice() public view returns (uint256) {
+        return usdEthRate;
+    }
+
     function close() public onlyOwner {
         msg.sender.transfer(address(this).balance);
     }
