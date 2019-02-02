@@ -25,5 +25,5 @@ In order to use an instance of `VrParkIcoStep`, the following steps have to be t
 1. Create a `VrParkToken` instance.
 2. Create an `ExchangeInteractor` instance.
 3. Create a `VrParkIcoStep` instance using previously created token and oracle instances as corresponding parameters.
-4. Add address of `VrParkIcoStep` instance as a minter.
+4. Add address of `VrParkIcoStep` instance as a minter using token's `addMinter` function.
 
